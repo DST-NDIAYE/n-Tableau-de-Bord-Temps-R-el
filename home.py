@@ -8,3 +8,9 @@ st.set_page_config(
     initial_sidebar_state="auto",
     menu_items=None,
 )
+
+# Set page title
+st.title("Tableau de Bord Temps reel")
+st.header(" **Bienvenue** sur le :blue[ Tableau de Bord Temps reel ]")
+st.subheader("Ceci est un exemple de tableau de bord en temps réel")
+st.text("lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc ")
