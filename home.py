@@ -57,3 +57,7 @@ else:
 option = st.selectbox("Choose an option", liste)
 
 
+st.text("lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc ")
+
+st.number_input("Enter a number", min_value=0, max_value=100, value=50, step=5, help="Enter a number between 0 and 100")
+
