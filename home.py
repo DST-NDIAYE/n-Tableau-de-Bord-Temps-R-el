@@ -39,4 +39,21 @@ df = pd.DataFrame(data)
 
 st.write(df)
 
-st.button("Click Me" , help="Click to see the data" , type="secondary")
+
+liste = ["A", "B", "C", "D", "E"]
+
+if st.button("Click Me" , help="Click to see the data" , type="secondary"):
+    st.write(liste)
+
+
+
+if st.checkbox(" accepter les conditions", help="Check to see the data"):
+    st.write("You have accepted the conditions")
+else:
+    st.write("You have not accepted the conditions")    
+
+
+
+option = st.selectbox("Choose an option", liste)
+
+
