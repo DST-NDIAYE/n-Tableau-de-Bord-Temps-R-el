@@ -1,4 +1,7 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+
 
 # Set page config
 st.set_page_config(
@@ -26,3 +29,14 @@ html_string = """ <div style="background-color: #f5f5f5; padding: 10px;">
 
 </div> """
 st.markdown(html_string, unsafe_allow_html=True)
+
+
+# Creating a Dataframe from a Dictionary
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Mauro'],
+'Age': [25, 33, 47, 19, 28, 17],
+'City': ['Rome', 'Milan', 'Naples', 'Turin', 'Florence', 'Turin']}
+df = pd.DataFrame(data)
+
+st.write(df)
+
+st.button("Click Me" , help="Click to see the data" , type="secondary")
