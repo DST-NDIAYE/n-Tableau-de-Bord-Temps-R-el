@@ -14,3 +14,15 @@ st.title("Tableau de Bord Temps reel")
 st.header(" **Bienvenue** sur le :blue[ Tableau de Bord Temps reel ]")
 st.subheader("Ceci est un exemple de tableau de bord en temps réel")
 st.text("lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc ")
+
+html_string = """ <div style="background-color: #f5f5f5; padding: 10px;">
+<h2 style="color: #0000FF;">Tableau de Bord Temps reel</h2>
+
+<ul>
+    <li> <b>Tableau de Bord Temps reel</b> :blue[ Tableau de Bord Temps reel ]</li>
+    <li> <b>Tableau de Bord Temps reel</b> :blue[ Tableau de Bord Temps reel ]</li>
+    <li> <b>Tableau de Bord Temps reel</b> :blue[ Tableau de Bord Temps reel ]</li>
+</ul>
+
+</div> """
+st.markdown(html_string, unsafe_allow_html=True)
