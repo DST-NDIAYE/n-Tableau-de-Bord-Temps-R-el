@@ -62,7 +62,7 @@ st.text("lore ipsumc  lore ipsumc lore ipsumc  lore ipsumc lore ipsumc  lore ips
 st.number_input("Enter a number", min_value=0, max_value=100, value=50, step=5, help="Enter a number between 0 and 100")
 
 
-st.metric("temperature", value=25, delta=2, help="Temperature in Celsius")
+st.sidebar.metric("temperature", value=25, delta=2, help="Temperature in Celsius")
 st.metric("humidity", value=75, delta=-3, help="Humidity in percentage")
 
 st.dataframe(df.style.highlight_max(axis=0))
@@ -72,4 +72,8 @@ st.error(" error",  icon=None)
 st.warning("warning", icon=None)
 st.info("info" , icon=None)
 st.success("succes" , icon=None)
+
+
+mon_texte = st.sidebar.text_area("Enter some text", "Default text")
+
 
