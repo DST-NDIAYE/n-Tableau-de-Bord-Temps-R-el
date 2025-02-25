@@ -83,6 +83,30 @@ if st.button("Obtenir la météo"):
         st.write(f"💨 Vent : {meteo['vent']} km/h")
         st.write(f"🌤️ Conditions : {meteo['conditions']}")
 
+# Prévisions météo
+import matplotlib.pyplot as plt
+
+if st.button("Afficher les prévisions météo"):
+    previsions = obtenir_previsions(ville)
+    if previsions:
+        dates = [p["date"] for p in previsions]
+        temperatures = [p["température"] for p in previsions]
+
+        fig, ax = plt.subplots()
+        ax.plot(dates, temperatures, marker="o", linestyle="-", color="b")
+        ax.set_title(f"Prévisions à {ville}")
+        ax.set_xlabel("Date")
+        ax.set_ylabel("Température (°C)")
+        ax.grid(True)
+
+        st.pyplot(fig)
+    else:
+        st.error("Impossible de récupérer les prévisions météo.")
+
+
+
+
+
 # Sélection du trajet
 st.subheader("🚗 Planifiez votre itinéraire")
 depart = st.text_input("📍 Ville de départ", "Paris")
