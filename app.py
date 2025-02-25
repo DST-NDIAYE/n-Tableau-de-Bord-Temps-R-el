@@ -75,3 +75,18 @@ if st.button("Obtenir l'itinéraire"):
         st.write("📜 Instructions de trajet :")
         for etape in trajet["instructions"]:
             st.markdown(f"- {etape}", unsafe_allow_html=True)
+
+import folium
+from streamlit_folium import folium_static
+
+# Fonction pour afficher une carte avec le trajet
+def afficher_carte(depart, arrivee):
+    carte = folium.Map(location=[48.8566, 2.3522], zoom_start=6)  # Centré sur la France
+    folium.Marker([48.8566, 2.3522], popup=f"Départ : {depart}", icon=folium.Icon(color="blue")).add_to(carte)
+    folium.Marker([45.7640, 4.8357], popup=f"Arrivée : {arrivee}", icon=folium.Icon(color="red")).add_to(carte)
+    return carte
+
+# Afficher la carte si un itinéraire est trouvé
+if st.button("Afficher la carte du trajet"):
+    carte_itineraire = afficher_carte(depart, arrivee)
+    folium_static(carte_itineraire)
