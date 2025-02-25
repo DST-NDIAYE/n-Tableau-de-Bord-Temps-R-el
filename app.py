@@ -83,6 +83,18 @@ if st.button("Obtenir la météo"):
         st.write(f"💨 Vent : {meteo['vent']} km/h")
         st.write(f"🌤️ Conditions : {meteo['conditions']}")
 
+
+
+# Vérifier si la variable meteo est définie avant d'y accéder
+if 'meteo' in locals() and "conditions" in meteo:
+    conditions_dangereuses = ["pluie", "orages", "tempête", "neige", "vent fort"]
+    alerte = any(mot in meteo["conditions"] for mot in conditions_dangereuses)
+
+    if alerte:
+        st.warning(f"⚠️ Attention ! La météo indique : {meteo['conditions']}. Soyez prudent(e).")
+
+
+
 # Prévisions météo
 import matplotlib.pyplot as plt
 
@@ -102,7 +114,6 @@ if st.button("Afficher les prévisions météo"):
         st.pyplot(fig)
     else:
         st.error("Impossible de récupérer les prévisions météo.")
-
 
 
 
