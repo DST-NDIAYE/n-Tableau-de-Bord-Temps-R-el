@@ -40,6 +40,31 @@ def obtenir_itineraire(depart="Paris", arrivee="Lyon", mode="driving"):
         }
     else:
         return {"erreur": "Aucune route trouvée"}
+    
+    
+# Fonction pour récupérer les prévisions météo
+def obtenir_previsions(ville="Paris"):
+    url = f"http://api.openweathermap.org/data/2.5/forecast?q={ville}&appid={cle_meteo}&units=metric&lang=fr"
+    reponse = requests.get(url)
+
+    if reponse.status_code == 200:
+        donnees = reponse.json()
+        previsions = []
+        for i in range(0, 40, 8):  # 5 jours, 8 intervalles par jour (chaque 3h)
+            jour = donnees["list"][i]
+            previsions.append({
+                "date": jour["dt_txt"].split(" ")[0],
+                "température": jour["main"]["temp"]
+            })
+        return previsions
+    else:
+        return None
+
+
+
+    
+    
+
 
 # Interface Streamlit
 st.title("🌦️ Météo & 🚗 Itinéraires")
